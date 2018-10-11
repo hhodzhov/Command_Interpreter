@@ -16,10 +16,7 @@ public class ReverseWords extends Command implements Executable{
             wordsReversed[index++] = expression[i];
         }
         return Arrays.toString(wordsReversed).join(" ", wordsReversed);
-//        for (int i = 0; i < wordsReversed.length; i++) {
-//            result = result + wordsReversed[i] + " ";
-//        }
-//        return result.trim();
+
 	}
 
 }
