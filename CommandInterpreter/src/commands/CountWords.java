@@ -7,7 +7,7 @@ public class CountWords extends Command implements Executable{
 
 	@Override
 	public String execute() {
-		// TODO Auto-generated method stub
+		
 		if(expression.length == 0) {
 			return String.valueOf(0);
 		}else {

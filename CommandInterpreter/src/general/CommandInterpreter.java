@@ -15,7 +15,6 @@ public class CommandInterpreter {
 
 	private String startInterpretation(String expression) throws CommandNotFoundException{
 		expression = expression.trim();
-		//assert (expression.indexOf(' ') != -1);
 		String command;
 		if(expression.indexOf(' ') == -1) {
 			command = expression;

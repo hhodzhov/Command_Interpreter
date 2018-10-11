@@ -17,6 +17,5 @@ public class Main {
 		CommandInterpreter commandInterpreter = new CommandInterpreter(commandsToInterpret);
 		commandInterpreter.start();
 		
-		System.out.println("Hello");
 	}
 }
