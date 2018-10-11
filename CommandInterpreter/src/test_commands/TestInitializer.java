@@ -8,6 +8,7 @@ import org.junit.Before;
 
 import commands.CountWords;
 import commands.Reverse;
+import commands.ReverseWords;
 import general.Command;
 import general.CommandInterpreter;
 
@@ -24,6 +25,7 @@ public class TestInitializer {
 		commandsToInterpret = new HashMap<>();
 		commandsToInterpret.put("count-words", new CountWords());
 		commandsToInterpret.put("reverse", new Reverse());
+		commandsToInterpret.put("reverse-words", new ReverseWords());
 		commandInterpreter = new CommandInterpreter(commandsToInterpret);
 
 		cls = commandInterpreter.getClass();
