@@ -31,4 +31,5 @@ public class TestReverse extends TestInitializer {
 				interpretationMethod.invoke(commandInterpreter, "reverse"));
 	}
 	
+	
 }

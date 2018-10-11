@@ -9,12 +9,12 @@ public class Reverse extends Command implements Executable {
 	public String execute() {
 		String expressionAsString = String.join(" ", expression);
 		char[] expressionAsArray = expressionAsString.toCharArray();
-		
-        String reversed = "";
-        for (int i = expressionAsArray.length - 1; i >= 0; i--) {
-            reversed = reversed + expressionAsArray[i];
-        }
-        return reversed;
+
+		String reversed = "";
+		for (int i = expressionAsArray.length - 1; i >= 0; i--) {
+			reversed = reversed + expressionAsArray[i];
+		}
+		return reversed;
 	}
 
 }

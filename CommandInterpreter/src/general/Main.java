@@ -5,6 +5,7 @@ import java.util.Map;
 
 import commands.CountWords;
 import commands.Reverse;
+import commands.ReverseWords;
 
 public class Main {
 	
@@ -14,6 +15,7 @@ public class Main {
 		Map<String, Command> commandsToInterpret = new HashMap<>();
 		commandsToInterpret.put("count-words", new CountWords());
 		commandsToInterpret.put("reverse", new Reverse());
+		commandsToInterpret.put("reverse-words", new ReverseWords());
 		
 		
 		CommandInterpreter commandInterpreter = new CommandInterpreter(commandsToInterpret);
