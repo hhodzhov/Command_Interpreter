@@ -12,24 +12,31 @@ public class TestReverse extends TestInitializer {
 	public void testNormalSentence()
 			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
-		assertEquals("arbadac arba",
-				interpretationMethod.invoke(commandInterpreter, "reverse abra cadabra"));
+		assertEquals("arbadac arba", interpretationMethod.invoke(commandInterpreter, "reverse abra cadabra"));
 	}
-	@Test
-	public void testOneWord()
-			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
-		assertEquals("aktok",
-				interpretationMethod.invoke(commandInterpreter, "reverse kotka"));
-	}
-	
 	@Test
-	public void testEmptyString()
-			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+	public void testOneWord() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
-		assertEquals("",
-				interpretationMethod.invoke(commandInterpreter, "reverse"));
+		assertEquals("aktok", interpretationMethod.invoke(commandInterpreter, "reverse kotka"));
 	}
-	
-	
+
+	@Test
+	public void testEmptyString() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+
+		assertEquals("", interpretationMethod.invoke(commandInterpreter, "reverse"));
+	}
+
+	@Test
+	public void testOneWordWithSpaceAfter()
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		assertEquals("aktok", interpretationMethod.invoke(commandInterpreter, "reverse kotka "));
+	}
+
+	@Test
+	public void testOneWordWithSpaceBefore()
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		assertEquals("aktok ", interpretationMethod.invoke(commandInterpreter, "reverse  kotka"));
+	}
+
 }

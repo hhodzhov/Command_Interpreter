@@ -23,5 +23,19 @@ public class TestReverseWords extends TestInitializer{
 		assertEquals("",
 				interpretationMethod.invoke(commandInterpreter, "reverse-words"));
 	}
+	
+	@Test
+	public void testOnlyOneWord() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		assertEquals("hello", interpretationMethod.invoke(commandInterpreter, "reverse-words hello"));
+	}
+	
+	@Test
+	public void testOneWordWithSpaceAfter() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		assertEquals("hello", interpretationMethod.invoke(commandInterpreter, "reverse-words hello "));
+	}
 
+	@Test
+	public void testOneWordWithSpaceBefore() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		assertEquals("hello ", interpretationMethod.invoke(commandInterpreter, "reverse-words  hello"));
+	}
 }

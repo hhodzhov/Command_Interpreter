@@ -1,5 +1,7 @@
 package general;
 
+import java.util.Arrays;
+
 public abstract class Command implements Executable {
 
 	protected String[] expression;
