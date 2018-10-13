@@ -4,7 +4,9 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Scanner;
 
+
 import exceptions.CommandNotFoundException;
+import exceptions.TypeNotFoundException;
 
 public class CommandInterpreter {
 
@@ -43,6 +45,12 @@ public class CommandInterpreter {
 
 			}catch(CommandNotFoundException cmd) {
 				System.err.println("No such command");
+			}
+			catch(IllegalArgumentException illegalArgumentException) {
+				System.err.println("Incorrect arguments");
+			}
+			catch (TypeNotFoundException typeNotFoundException) {
+				System.err.println("Illegal variable type");
 			}
 		}
 	}
