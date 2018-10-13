@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import commands.CountWords;
+import commands.GetVariables;
 import commands.Reverse;
 import commands.ReverseWords;
 import commands.SetVariables;
@@ -31,6 +32,7 @@ public class Main {
 		commandsToInterpret.put("reverse", new Reverse());
 		commandsToInterpret.put("reverse-words", new ReverseWords());
 		commandsToInterpret.put("set", new SetVariables(myTypeContainer, availableTypes));
+		commandsToInterpret.put("get", new GetVariables(myTypeContainer));
 		
 		
 		CommandInterpreter commandInterpreter = new CommandInterpreter(commandsToInterpret);

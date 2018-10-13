@@ -11,12 +11,14 @@ public abstract class Command implements Executable {
 	protected String[] expression;
 	protected TypeContainer myTypeContainer;
 	protected Map<String, MyType> availableTypes;
-	
-	
 
 	public Command(TypeContainer myTypeContainer, Map<String, MyType> availableTypes) {
 		this.myTypeContainer = myTypeContainer;
 		this.availableTypes = availableTypes;
+	}
+
+	public Command(TypeContainer myTypeContainer) {
+		this.myTypeContainer = myTypeContainer;
 	}
 
 	public Command() {

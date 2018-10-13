@@ -3,6 +3,7 @@ package type_container;
 import java.util.Map;
 
 import exceptions.TypeNotFoundException;
+import exceptions.VariableNotFoundException;
 import my_types.MyType;
 
 public class TypeContainer {
@@ -37,6 +38,14 @@ public class TypeContainer {
 	private String addMyType(String nameOfVariable, MyType myType) {
 		variableContainer.put(nameOfVariable, myType);
 		return "New variable added";
+	}
+
+	public MyType getType(String nameOfVariable) {
+		if (!variableContainer.containsKey(nameOfVariable)) {
+			throw new VariableNotFoundException();
+		} else {
+			return variableContainer.get(nameOfVariable);
+		}
 	}
 
 }

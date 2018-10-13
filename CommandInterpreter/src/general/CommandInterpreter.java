@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 import exceptions.CommandNotFoundException;
 import exceptions.TypeNotFoundException;
+import exceptions.VariableNotFoundException;
 
 public class CommandInterpreter {
 
@@ -51,6 +52,9 @@ public class CommandInterpreter {
 			}
 			catch (TypeNotFoundException typeNotFoundException) {
 				System.err.println("Illegal variable type");
+			}
+			catch(VariableNotFoundException variableNotFoundException) {
+				System.err.println("No such variable");
 			}
 		}
 	}
