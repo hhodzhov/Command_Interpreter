@@ -17,7 +17,7 @@ public class CommandInterpreter {
 		this.commandsToInterpret = commandsToInterpret;
 	}
 
-	private String startInterpretation(String expression) throws CommandNotFoundException{
+	public String startInterpretation(String expression) throws CommandNotFoundException{
 		expression = expression.trim();
 		String command;
 		if(expression.indexOf(' ') == -1) {
@@ -35,27 +35,5 @@ public class CommandInterpreter {
 		}
 
 		return typeOfCommand.interpretCommand(expression);
-	}
-	
-	public void start() {
-		Scanner input = new Scanner(System.in);
-		
-		while(input.hasNext()) {
-			try {
-				System.out.println(startInterpretation(input.nextLine()));
-
-			}catch(CommandNotFoundException cmd) {
-				System.err.println("No such command");
-			}
-			catch(IllegalArgumentException illegalArgumentException) {
-				System.err.println("Incorrect arguments");
-			}
-			catch (TypeNotFoundException typeNotFoundException) {
-				System.err.println("Illegal variable type");
-			}
-			catch(VariableNotFoundException variableNotFoundException) {
-				System.err.println("No such variable");
-			}
-		}
 	}
 }

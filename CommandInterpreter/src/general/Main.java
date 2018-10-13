@@ -2,18 +2,43 @@ package general;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 import commands.CountWords;
 import commands.GetVariables;
 import commands.Reverse;
 import commands.ReverseWords;
 import commands.SetVariables;
+import exceptions.CommandNotFoundException;
+import exceptions.TypeNotFoundException;
+import exceptions.VariableNotFoundException;
 import my_types.MyNumber;
 import my_types.MyString;
 import my_types.MyType;
 import type_container.TypeContainer;
 
 public class Main {
+	
+	public static void startExecution(Scanner input, CommandInterpreter commandInterpreter) {
+		
+		while(input.hasNext()) {
+			try {
+				System.out.println(commandInterpreter.startInterpretation(input.nextLine()));
+
+			}catch(CommandNotFoundException cmd) {
+				System.err.println("No such command");
+			}
+			catch(IllegalArgumentException illegalArgumentException) {
+				System.err.println("Incorrect arguments");
+			}
+			catch (TypeNotFoundException typeNotFoundException) {
+				System.err.println("Illegal variable type");
+			}
+			catch(VariableNotFoundException variableNotFoundException) {
+				System.err.println("No such variable");
+			}
+		}
+	}
 	
 	public static void main(String[] args) {
 		
@@ -36,7 +61,10 @@ public class Main {
 		
 		
 		CommandInterpreter commandInterpreter = new CommandInterpreter(commandsToInterpret);
-		commandInterpreter.start();
+		Scanner input = new Scanner(System.in);
+		
+		startExecution(input,commandInterpreter);
+		
 		
 	}
 }
