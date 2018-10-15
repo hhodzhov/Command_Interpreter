@@ -7,6 +7,7 @@ import java.util.Map;
 import org.junit.Before;
 
 import commands.CountWords;
+import commands.GetVariables;
 import commands.Reverse;
 import commands.ReverseWords;
 import commands.SetVariables;
@@ -21,7 +22,6 @@ public class TestInitializer {
 
 	protected Map<String, Command> commandsToInterpret;
 	protected CommandInterpreter commandInterpreter;
-	@SuppressWarnings("rawtypes")
 	protected Class<? extends CommandInterpreter> cls;
 	protected Method interpretationMethod;
 
@@ -40,6 +40,7 @@ public class TestInitializer {
 		commandsToInterpret.put("reverse", new Reverse());
 		commandsToInterpret.put("reverse-words", new ReverseWords());
 		commandsToInterpret.put("set", new SetVariables(myTypeContainer, availableTypes));
+		commandsToInterpret.put("get", new GetVariables(myTypeContainer));
 		commandInterpreter = new CommandInterpreter(commandsToInterpret);
 
 		cls = commandInterpreter.getClass();
