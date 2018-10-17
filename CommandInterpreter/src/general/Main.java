@@ -34,19 +34,24 @@ public class Main {
 				System.out.println(commandInterpreter.startInterpretation(input.nextLine()));
 
 			}catch(CommandNotFoundException cmd) {
-				System.err.println("No such command");
+				//System.err.println("No such command");
+				System.err.println(cmd.getMessage());
 			}
 			catch(IllegalArgumentException illegalArgumentException) {
-				System.err.println("Incorrect arguments");
+				//System.err.println("Incorrect arguments");
+				System.err.println(illegalArgumentException.getMessage());
 			}
 			catch (TypeNotFoundException typeNotFoundException) {
-				System.err.println("Illegal variable type");
+				//System.err.println("Illegal variable type");
+				System.err.println(typeNotFoundException.getMessage());
 			}
 			catch(VariableNotFoundException variableNotFoundException) {
-				System.err.println("No such variable");
+				//System.err.println("No such variable");
+				System.err.println(variableNotFoundException.getMessage());
+				
 			}
 			catch(NoSuchOperationException noSuchOperation) {
-				System.err.println("No such operation allowed!");
+				System.err.println(noSuchOperation.getMessage());
 			}
 		}
 	}

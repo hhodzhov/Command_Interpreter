@@ -16,7 +16,7 @@ public class OperationFactory {
 		if(possibleOperations.containsKey(operation)) {
 			return possibleOperations.get(operation).execute(firstType, secondType);
 		}else {
-			throw new NoSuchOperationException("There is no such operation");
+			throw new NoSuchOperationException("No such operation possible!");
 		}
 	}
 	

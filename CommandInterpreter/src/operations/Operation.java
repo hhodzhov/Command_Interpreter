@@ -24,7 +24,7 @@ public abstract class Operation {
 			return availableTypesOperation.get(currentPair).startCalculations(firstType, secondType);
 		}
 		else {
-			throw new NoSuchOperationException("No such operation!");
+			throw new NoSuchOperationException("Operation with these types is not allowed");
 		}
 	}
 }
