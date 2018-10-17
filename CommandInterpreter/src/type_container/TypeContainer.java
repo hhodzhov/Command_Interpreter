@@ -35,7 +35,7 @@ public class TypeContainer {
 		}
 	}
 
-	private String addMyType(String nameOfVariable, MyType myType) {
+	public String addMyType(String nameOfVariable, MyType myType) {
 		variableContainer.put(nameOfVariable, myType);
 		return "New variable added";
 	}
