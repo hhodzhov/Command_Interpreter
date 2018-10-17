@@ -2,6 +2,7 @@ package commands;
 
 import general.Command;
 import general.Executable;
+import my_types.MyType;
 import operations.OperationFactory;
 import type_container.TypeContainer;
 
@@ -19,9 +20,10 @@ public class Calc extends Command implements Executable {
 		}
 
 		char operation = expression[2].charAt(0);
-		myTypeContainer.addMyType(expression[0], operationFactory.exec(operation,
-				myTypeContainer.getType(expression[1]), myTypeContainer.getType(expression[3])));
-		
+		MyType newVariable = operationFactory.exec(operation, myTypeContainer.getType(expression[1]),
+				myTypeContainer.getType(expression[3]));
+		myTypeContainer.addMyType(expression[0], newVariable);
+
 		return "Ok";
 	}
 

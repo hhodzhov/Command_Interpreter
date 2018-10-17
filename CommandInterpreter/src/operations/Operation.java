@@ -8,21 +8,20 @@ import javafx.util.Pair;
 import my_types.MyType;
 
 public abstract class Operation {
-	protected Map<Pair<String, String>, Calculable> operations;
+	protected Map<Pair<String, String>, Calculable> availableTypesOperation;
 	
 	
 	
 	public Operation(Map<Pair<String, String>, Calculable> operations) {
-		this.operations = operations;
+		this.availableTypesOperation = operations;
 	}
-
 
 
 	public MyType execute(MyType firstType, MyType secondType) {
 		Pair<String, String> currentPair = new Pair<>(firstType.getClass().getSimpleName(), secondType.getClass().getSimpleName());
 		
-		if(operations.containsKey(currentPair)) {
-			return operations.get(currentPair).startCalculations(firstType, secondType);
+		if(availableTypesOperation.containsKey(currentPair)) {
+			return availableTypesOperation.get(currentPair).startCalculations(firstType, secondType);
 		}
 		else {
 			throw new NoSuchOperationException("No such operation!");
