@@ -16,7 +16,8 @@ public class Calc extends Command implements Executable {
 	public String execute() {
 
 		if (expression.length != 4) {
-			throw new IllegalArgumentException("Wrong arguments!!!");
+			throw new IllegalArgumentException("Wrong arguments!\n"
+					+ "4 arguments expected: <newVarName> <varName1> <operation> <varName2>");
 		}
 
 		char operation = expression[2].charAt(0);

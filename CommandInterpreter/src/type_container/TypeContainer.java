@@ -42,7 +42,7 @@ public class TypeContainer {
 
 	public MyType getType(String nameOfVariable) {
 		if (!variableContainer.containsKey(nameOfVariable)) {
-			throw new VariableNotFoundException();
+			throw new VariableNotFoundException("Variable not found!");
 		} else {
 			return variableContainer.get(nameOfVariable);
 		}

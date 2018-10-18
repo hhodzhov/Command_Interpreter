@@ -37,7 +37,7 @@ public abstract class Command implements Executable {
 	}
 
 	private String[] expressionWithoutCommand(String expr) {
-		String[] current = expr.split(" ");
+		String[] current = expr.split("\\s+");
 		String[] toReturn = new String[current.length - 1];
 		for (int i = 1; i < current.length; i++) {
 			toReturn[i - 1] = current[i];
