@@ -1,6 +1,5 @@
 package operations;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import exceptions.NoSuchOperationException;

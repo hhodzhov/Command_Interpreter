@@ -3,19 +3,9 @@ package test_commands;
 import static org.junit.Assert.*;
 
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.LinkedList;
-
-import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import static org.mockito.Mockito.mock;
-import org.mockito.Mockito;
-
 import exceptions.CommandNotFoundException;
-import general.CommandInterpreter;
-import junit.framework.Assert;
+
 
 public class TestCountWords extends TestInitializer {
 	

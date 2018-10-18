@@ -1,8 +1,6 @@
 package general;
 
-import java.util.Arrays;
 import java.util.Map;
-
 import my_types.MyType;
 import operations.OperationFactory;
 import type_container.TypeContainer;

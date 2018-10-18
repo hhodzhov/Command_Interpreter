@@ -1,13 +1,7 @@
 package general;
 
-import java.util.Arrays;
 import java.util.Map;
-import java.util.Scanner;
-
-
 import exceptions.CommandNotFoundException;
-import exceptions.TypeNotFoundException;
-import exceptions.VariableNotFoundException;
 
 public class CommandInterpreter {
 

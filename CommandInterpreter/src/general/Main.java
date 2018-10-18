@@ -18,11 +18,16 @@ import javafx.util.Pair;
 import my_types.MyNumber;
 import my_types.MyString;
 import my_types.MyType;
-import operations.Add;
-import operations.AddNumbers;
 import operations.Calculable;
 import operations.Operation;
 import operations.OperationFactory;
+import operations.add_operations.Add;
+import operations.add_operations.AddNumbers;
+import operations.add_operations.AddStringNumber;
+import operations.add_operations.AddStringString;
+import operations.multiply_operations.Multiply;
+import operations.multiply_operations.MultiplyNumbers;
+import operations.multiply_operations.MultiplyStringNumber;
 import type_container.TypeContainer;
 
 public class Main {
@@ -69,11 +74,19 @@ public class Main {
 		
 		HashMap<Pair<String, String>, Calculable> addOperations = new HashMap<>();
 		addOperations.put(new Pair<>(MyNumber.class.getSimpleName(), MyNumber.class.getSimpleName()), new AddNumbers());
+		addOperations.put(new Pair<>(MyString.class.getSimpleName(), MyNumber.class.getSimpleName()), new AddStringNumber());
+		addOperations.put(new Pair<>(MyString.class.getSimpleName(), MyString.class.getSimpleName()), new AddStringString());
 		
+		
+		HashMap<Pair<String, String>, Calculable> multiplyOperations = new HashMap<>();
+		multiplyOperations.put(new Pair<>(MyNumber.class.getSimpleName(), MyNumber.class.getSimpleName()), new MultiplyNumbers());
+		multiplyOperations.put(new Pair<>(MyString.class.getSimpleName(), MyNumber.class.getSimpleName()), new MultiplyStringNumber());
 		
 		
 		Map<Character, Operation> possibleOperations = new HashMap<>();
 		possibleOperations.put('+', new Add(addOperations));
+		possibleOperations.put('*', new Multiply(multiplyOperations));
+		
 		
 		OperationFactory operationFactory = new OperationFactory(possibleOperations);
 		
