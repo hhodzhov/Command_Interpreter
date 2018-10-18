@@ -5,6 +5,7 @@ public abstract class MyType {
 	public MyType() {
 		
 	}
+
 	MyType(String value){
 		setValue(value);
 	}
