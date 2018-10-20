@@ -11,7 +11,7 @@ public class CommandInterpreter {
 		this.commandsToInterpret = commandsToInterpret;
 	}
 
-	public String startInterpretation(String expression) throws CommandNotFoundException{
+	public String startInterpretation(String expression){
 		expression = expression.trim();
 		String command;
 		if(expression.indexOf(' ') == -1) {
