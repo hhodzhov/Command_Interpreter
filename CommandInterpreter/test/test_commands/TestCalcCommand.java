@@ -73,52 +73,55 @@ public class TestCalcCommand extends TestInitializer {
 		expectedException.expectMessage("First variable's length must be greater than second's");
 		commandInterpreter.startInterpretation("calc third first - second");
 	}
+
 	@Test
 	public void testSubtractStringsWithEqualLengths() {
 		set("set first string HelloIamPeter");
 		set("set second string HelloIamPeter");
 		expectedException.expect(IllegalArgumentException.class);
 		expectedException.expectMessage("First variable's length must be greater than second's");
-		commandInterpreter.startInterpretation("calc third first - second");	
+		commandInterpreter.startInterpretation("calc third first - second");
 	}
+
 	@Test
 	public void testSubtractStringsFirstNotContainsSecond() {
 		set("set first string HelloIamPeter");
 		set("set second string hi");
 		expectedException.expect(OperationNotAllowedException.class);
 		expectedException.expectMessage("First variable does not contain second. Operation cannot be done!");
-		commandInterpreter.startInterpretation("calc third first - second");	
+		commandInterpreter.startInterpretation("calc third first - second");
 	}
+
 	@Test
 	public void testSubtractStringsFromTheBegginingOfTheFirst() {
 		set("set first string HelloIamPeter");
 		set("set second string Hello");
-	    assertEquals("Ok",commandInterpreter.startInterpretation("calc third first - second"));
-	    assertEquals("[string] IamPeter", commandInterpreter.startInterpretation("get third"));
+		assertEquals("Ok", commandInterpreter.startInterpretation("calc third first - second"));
+		assertEquals("[string] IamPeter", commandInterpreter.startInterpretation("get third"));
 	}
-	
+
 	@Test
 	public void testSubtractStringsFromTheMiddleOfTheFirst() {
 		set("set first string HelloIamPeter");
 		set("set second string oIamP");
-	    assertEquals("Ok",commandInterpreter.startInterpretation("calc third first - second"));
-	    assertEquals("[string] Helleter", commandInterpreter.startInterpretation("get third"));
+		assertEquals("Ok", commandInterpreter.startInterpretation("calc third first - second"));
+		assertEquals("[string] Helleter", commandInterpreter.startInterpretation("get third"));
 	}
-	
+
 	@Test
 	public void testSubtractStringsFromTheEndOfTheFirst() {
 		set("set first string HelloIamPeter");
 		set("set second string eter");
-	    assertEquals("Ok",commandInterpreter.startInterpretation("calc third first - second"));
-	    assertEquals("[string] HelloIamP", commandInterpreter.startInterpretation("get third"));
+		assertEquals("Ok", commandInterpreter.startInterpretation("calc third first - second"));
+		assertEquals("[string] HelloIamP", commandInterpreter.startInterpretation("get third"));
 	}
-	
+
 	@Test
 	public void testSubtractStringsMoreThanOneOccurence() {
 		set("set first string HelloHelloMyNameIsPeter");
 		set("set second string Hello");
-	    assertEquals("Ok",commandInterpreter.startInterpretation("calc third first - second"));
-	    assertEquals("[string] MyNameIsPeter", commandInterpreter.startInterpretation("get third"));
+		assertEquals("Ok", commandInterpreter.startInterpretation("calc third first - second"));
+		assertEquals("[string] MyNameIsPeter", commandInterpreter.startInterpretation("get third"));
 	}
 
 }

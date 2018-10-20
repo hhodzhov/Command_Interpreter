@@ -16,6 +16,7 @@ public abstract class Command implements Executable {
 		this.myTypeContainer = myTypeContainer;
 		this.availableTypes = availableTypes;
 	}
+
 	public Command(TypeContainer myTypeContainer, OperationFactory operationFactory) {
 		this.myTypeContainer = myTypeContainer;
 		this.operationFactory = operationFactory;

@@ -11,5 +11,4 @@ public class Multiply extends Operation {
 	public Multiply(Map<Pair<String, String>, Calculable> operations) {
 		super(operations);
 	}
-
 }

@@ -13,11 +13,10 @@ public class OperationFactory {
 	}
 
 	public MyType exec(char operation, MyType firstType, MyType secondType) {
-		if(possibleOperations.containsKey(operation)) {
+		if (possibleOperations.containsKey(operation)) {
 			return possibleOperations.get(operation).execute(firstType, secondType);
-		}else {
+		} else {
 			throw new OperationNotAllowedException("No such operation possible!");
 		}
 	}
-	
 }

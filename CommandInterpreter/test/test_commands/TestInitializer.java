@@ -42,39 +42,40 @@ public class TestInitializer {
 
 	@Before
 	public void initialize() throws NoSuchMethodException, SecurityException {
-		
+
 		Map<String, MyType> variableContainer = new HashMap<>();
 		Map<String, MyType> availableTypes = new HashMap<>();
 		availableTypes.put("string", new MyString());
 		availableTypes.put("number", new MyNumber());
-		
+
 		TypeContainer myTypeContainer = new TypeContainer(variableContainer, availableTypes);
-		
+
 		HashMap<Pair<String, String>, Calculable> addOperations = new HashMap<>();
 		addOperations.put(new Pair<>(MyNumber.class.getSimpleName(), MyNumber.class.getSimpleName()), new AddNumbers());
-		addOperations.put(new Pair<>(MyString.class.getSimpleName(), MyNumber.class.getSimpleName()), new AddStringNumber());
-		addOperations.put(new Pair<>(MyString.class.getSimpleName(), MyString.class.getSimpleName()), new AddStringString());
-		
-		
+		addOperations.put(new Pair<>(MyString.class.getSimpleName(), MyNumber.class.getSimpleName()),
+				new AddStringNumber());
+		addOperations.put(new Pair<>(MyString.class.getSimpleName(), MyString.class.getSimpleName()),
+				new AddStringString());
+
 		HashMap<Pair<String, String>, Calculable> multiplyOperations = new HashMap<>();
-		multiplyOperations.put(new Pair<>(MyNumber.class.getSimpleName(), MyNumber.class.getSimpleName()), new MultiplyNumbers());
-		multiplyOperations.put(new Pair<>(MyString.class.getSimpleName(), MyNumber.class.getSimpleName()), new MultiplyStringNumber());
-		
-		
+		multiplyOperations.put(new Pair<>(MyNumber.class.getSimpleName(), MyNumber.class.getSimpleName()),
+				new MultiplyNumbers());
+		multiplyOperations.put(new Pair<>(MyString.class.getSimpleName(), MyNumber.class.getSimpleName()),
+				new MultiplyStringNumber());
+
 		HashMap<Pair<String, String>, Calculable> subtractOperations = new HashMap<>();
-		subtractOperations.put(new Pair<>(MyNumber.class.getSimpleName(), MyNumber.class.getSimpleName()), new SubtractNumbers());
-		subtractOperations.put(new Pair<>(MyString.class.getSimpleName(), MyString.class.getSimpleName()), new SubtractStringString());
-		
-		
+		subtractOperations.put(new Pair<>(MyNumber.class.getSimpleName(), MyNumber.class.getSimpleName()),
+				new SubtractNumbers());
+		subtractOperations.put(new Pair<>(MyString.class.getSimpleName(), MyString.class.getSimpleName()),
+				new SubtractStringString());
+
 		Map<Character, Operation> possibleOperations = new HashMap<>();
 		possibleOperations.put('+', new Add(addOperations));
 		possibleOperations.put('*', new Multiply(multiplyOperations));
 		possibleOperations.put('-', new Subtract(subtractOperations));
-		
+
 		OperationFactory operationFactory = new OperationFactory(possibleOperations);
-		
-		
-		
+
 		commandsToInterpret = new HashMap<>();
 		commandsToInterpret.put("count-words", new CountWords());
 		commandsToInterpret.put("reverse", new Reverse());
@@ -82,13 +83,12 @@ public class TestInitializer {
 		commandsToInterpret.put("set", new SetVariables(myTypeContainer, availableTypes));
 		commandsToInterpret.put("get", new GetVariables(myTypeContainer));
 		commandsToInterpret.put("calc", new Calc(myTypeContainer, operationFactory));
-		
+
 		commandInterpreter = new CommandInterpreter(commandsToInterpret);
 
 		cls = commandInterpreter.getClass();
 		interpretationMethod = cls.getDeclaredMethod("startInterpretation", String.class);
 		interpretationMethod.setAccessible(true);
 
-		
 	}
 }

@@ -9,8 +9,8 @@ public class Reverse extends Command implements Executable {
 	public String execute() {
 		String expressionAsString = String.join(" ", expression);
 		char[] expressionAsArray = expressionAsString.toCharArray();
-		
-		if(expressionAsArray.length == 0) {
+
+		if (expressionAsArray.length == 0) {
 			throw new IllegalArgumentException("Argument expected! reverse <SomeString>");
 		}
 

@@ -16,18 +16,18 @@ public class SetVariables extends Command implements Executable {
 
 	@Override
 	public String execute() {
-		
-		if(expression.length != 3) {
-			throw new IllegalArgumentException("Incorrect arguments passed :"
-					+ " 3 arguments expected\n1st-name of new variable\n"
-					+ "2nd-type of new variable\n3rd-value of new variable");
+
+		if (expression.length != 3) {
+			throw new IllegalArgumentException(
+					"Incorrect arguments passed :" + " 3 arguments expected\n1st-name of new variable\n"
+							+ "2nd-type of new variable\n3rd-value of new variable");
 		}
-		if(!availableTypes.containsKey(expression[1])) {
+		if (!availableTypes.containsKey(expression[1])) {
 			throw new TypeNotFoundException("Illegal varialble type error");
-		}else {
+		} else {
 			myTypeContainer.addVariable(expression[0], expression[1], expression[2]);
 		}
-		
+
 		return "Ok";
 	}
 

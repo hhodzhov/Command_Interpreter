@@ -4,7 +4,7 @@ import my_types.MyNumber;
 import my_types.MyType;
 import operations.Calculable;
 
-public class AddNumbers implements Calculable{
+public class AddNumbers implements Calculable {
 
 	@Override
 	public MyType startCalculations(MyType firstType, MyType secondType) {

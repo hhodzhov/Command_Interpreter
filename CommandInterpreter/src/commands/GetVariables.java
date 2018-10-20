@@ -1,7 +1,5 @@
 package commands;
 
-import java.util.Map;
-
 import exceptions.VariableNotFoundException;
 import general.Command;
 import general.Executable;
@@ -18,8 +16,7 @@ public class GetVariables extends Command implements Executable {
 	public String execute() throws VariableNotFoundException {
 
 		if (expression.length != 1) {
-			throw new IllegalArgumentException("Incorrect arguments\n"
-					+ "One argument expected-name of variable");
+			throw new IllegalArgumentException("Incorrect arguments\n" + "One argument expected-name of variable");
 		}
 
 		MyType myType = myTypeContainer.getType(expression[0]);
