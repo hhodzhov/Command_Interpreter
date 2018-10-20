@@ -2,13 +2,13 @@ package operations;
 
 import java.util.Map;
 
-import exceptions.NoSuchOperationException;
+import exceptions.OperationNotAllowedException;
 import my_types.MyType;
 
 public class OperationFactory {
 	private Map<Character, Operation> possibleOperations;
 
-	public OperationFactory(Map<Character, Operation> possibleOperations) throws NoSuchOperationException {
+	public OperationFactory(Map<Character, Operation> possibleOperations) throws OperationNotAllowedException {
 		this.possibleOperations = possibleOperations;
 	}
 
@@ -16,7 +16,7 @@ public class OperationFactory {
 		if(possibleOperations.containsKey(operation)) {
 			return possibleOperations.get(operation).execute(firstType, secondType);
 		}else {
-			throw new NoSuchOperationException("No such operation possible!");
+			throw new OperationNotAllowedException("No such operation possible!");
 		}
 	}
 	

@@ -40,7 +40,7 @@ public class TestReverseWords extends TestInitializer{
 
 	@Test
 	public void testOneWordWithSpaceBefore() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-		assertEquals("hello ", interpretationMethod.invoke(commandInterpreter, "reverse-words  hello"));
+		assertEquals("hello", interpretationMethod.invoke(commandInterpreter, "reverse-words  hello"));
 		 interpretationMethod.setAccessible(false);
 	}
 }

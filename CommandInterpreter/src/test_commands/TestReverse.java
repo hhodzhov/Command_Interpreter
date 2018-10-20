@@ -40,7 +40,7 @@ public class TestReverse extends TestInitializer {
 	@Test
 	public void testOneWordWithSpaceBefore()
 			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-		assertEquals("aktok ", interpretationMethod.invoke(commandInterpreter, "reverse  kotka"));
+		assertEquals("aktok", interpretationMethod.invoke(commandInterpreter, "reverse  kotka"));
 		 interpretationMethod.setAccessible(false);
 	}
 

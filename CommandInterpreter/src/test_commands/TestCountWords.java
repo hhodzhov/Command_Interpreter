@@ -30,6 +30,13 @@ public class TestCountWords extends TestInitializer {
 		assertEquals(String.valueOf(0), interpretationMethod.invoke(commandInterpreter, "count-words "));
 		 interpretationMethod.setAccessible(false);
 	}
+	
+	@Test
+	public void testWordsWithInnerSpace()
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		assertEquals(String.valueOf(2), interpretationMethod.invoke(commandInterpreter, "count-words abv  jhg"));
+		 interpretationMethod.setAccessible(false);
+	}
 
 	@Test(expected = CommandNotFoundException.class)
 	public void testWrongCommand() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {

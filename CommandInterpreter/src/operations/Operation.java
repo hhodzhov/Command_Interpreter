@@ -2,7 +2,7 @@ package operations;
 
 import java.util.Map;
 
-import exceptions.NoSuchOperationException;
+import exceptions.OperationNotAllowedException;
 import javafx.util.Pair;
 import my_types.MyType;
 
@@ -23,7 +23,7 @@ public abstract class Operation {
 			return availableTypesOperation.get(currentPair).startCalculations(firstType, secondType);
 		}
 		else {
-			throw new NoSuchOperationException("Operation with these types is not allowed");
+			throw new OperationNotAllowedException("Operation with these types is not allowed");
 		}
 	}
 }

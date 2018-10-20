@@ -11,7 +11,7 @@ import commands.Reverse;
 import commands.ReverseWords;
 import commands.SetVariables;
 import exceptions.CommandNotFoundException;
-import exceptions.NoSuchOperationException;
+import exceptions.OperationNotAllowedException;
 import exceptions.TypeNotFoundException;
 import exceptions.VariableNotFoundException;
 import javafx.util.Pair;
@@ -28,6 +28,9 @@ import operations.add_operations.AddStringString;
 import operations.multiply_operations.Multiply;
 import operations.multiply_operations.MultiplyNumbers;
 import operations.multiply_operations.MultiplyStringNumber;
+import operations.subtract_operations.Subtract;
+import operations.subtract_operations.SubtractNumbers;
+import operations.subtract_operations.SubtractStringString;
 import type_container.TypeContainer;
 
 public class Main {
@@ -55,7 +58,7 @@ public class Main {
 				System.err.println(variableNotFoundException.getMessage());
 				
 			}
-			catch(NoSuchOperationException noSuchOperation) {
+			catch(OperationNotAllowedException noSuchOperation) {
 				System.err.println(noSuchOperation.getMessage());
 			}
 		}
@@ -82,10 +85,14 @@ public class Main {
 		multiplyOperations.put(new Pair<>(MyNumber.class.getSimpleName(), MyNumber.class.getSimpleName()), new MultiplyNumbers());
 		multiplyOperations.put(new Pair<>(MyString.class.getSimpleName(), MyNumber.class.getSimpleName()), new MultiplyStringNumber());
 		
+		HashMap<Pair<String, String>, Calculable> subtractOperations = new HashMap<>();
+		subtractOperations.put(new Pair<>(MyNumber.class.getSimpleName(), MyNumber.class.getSimpleName()), new SubtractNumbers());
+		subtractOperations.put(new Pair<>(MyString.class.getSimpleName(), MyString.class.getSimpleName()), new SubtractStringString());
 		
 		Map<Character, Operation> possibleOperations = new HashMap<>();
 		possibleOperations.put('+', new Add(addOperations));
 		possibleOperations.put('*', new Multiply(multiplyOperations));
+		possibleOperations.put('-', new Subtract(subtractOperations));
 		
 		
 		OperationFactory operationFactory = new OperationFactory(possibleOperations);
