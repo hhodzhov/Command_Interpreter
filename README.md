@@ -76,10 +76,6 @@ The operations supported by these types are the following:
                        - <number>       subtracts the two numbers
                        * <number>       multiplies the two numbers
 
-           date
-                       + <number>      adds a <number> of days 
-                       - <number>       subtracts a <number> of days 
-
 
 # Example
 
