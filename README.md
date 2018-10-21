@@ -5,15 +5,10 @@ A simple command interpreter with the following properties:
 The interpreter takes commands from the standard input. The commands that will be supported are the following:
 
 reverse
-
 count-words
-
 reverse-words
-
 get
-
 set
-
 calc
  
 
