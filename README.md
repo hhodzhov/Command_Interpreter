@@ -75,7 +75,8 @@ The operations supported by these types are the following:
                        - <number>       subtracts a <number> of days 
 
 
-#Example
+# Example
+
 			set first string Hello
 			Ok
 			
