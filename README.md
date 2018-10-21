@@ -15,8 +15,8 @@ The interpreter takes commands from the standard input. The commands that will b
 # The "reverse" command has the following syntax:
            reverse <string>
 It reverses the letters in the provided string. For example
-  input:	reverse abra cadabra
-  output: 	arbadac arba
+ 	 input:	reverse abra cadabra
+ 	 output: 	arbadac arba
 
 
 # The "count-words" command has the following syntax:
