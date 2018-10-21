@@ -24,7 +24,7 @@ public class CommandInterpreter {
 		if (commandsToInterpret.containsKey(command)) {
 			typeOfCommand = commandsToInterpret.get(command);
 		} else {
-			throw new CommandNotFoundException("There is no such command");
+			throw new CommandNotFoundException("There is no such command!");
 		}
 
 		return typeOfCommand.interpretCommand(expression);
