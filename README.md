@@ -15,6 +15,7 @@ calc
 # The "reverse" command has the following syntax:
            reverse <string>
 It reverses the letters in the provided string. For example
+
  	 input:	reverse abra cadabra
  	 output: 	arbadac arba
 
@@ -22,20 +23,23 @@ It reverses the letters in the provided string. For example
 # The "count-words" command has the following syntax:
            count-words <string>
 It returns the number of words in the provided string. For example
-  input:	count-words abra cadabra
-  output: 	2
+
+	  input:	count-words abra cadabra
+	  output: 	2
 
 
 # The " reverse-words" command has the following syntax:
            reverse-words <string>
 It reverses the order of the words in the provided string. For example
-  input:	reverse-words abra cadabra
-  output: 	cadabra abra
+
+	  input:	reverse-words abra cadabra
+  	  output: 	cadabra abra
 
 # The "get" command has the following syntax:
            get <variable>
 
 It obtains the value of the given variable and prints it out in the format:
+
            [<type>] <value>
 (please see the example at the end). 
 
@@ -56,6 +60,7 @@ The output of the command is the string "Ok".
 
 
 The possible types of the values are the following:
+
            string
            number
 		   
