@@ -70,7 +70,8 @@ The operations supported by these types are the following:
                        + <string>      concatenates the two strings
                        + <number>      adds the number as a string to the end
                        * <number>      repeats the string a <number> times
-		       - <string>      removes all occurences of secondString from firstString. Length of firstString must be greater
+		       - <string>      removes all occurences of secondString from firstString. 
+		       		       Length of firstString must be greater
 		       	               than length of second.
 
            number
