@@ -21,7 +21,7 @@ public class SetVariables extends Command implements Executable {
 			throw new IllegalArgumentException("Wrong arguments! 3 arguments expected: set <variableName> <type> <value>");
 		}
 		if (!availableTypes.containsKey(expression[1])) {
-			throw new TypeNotFoundException("Variable not found!");
+			throw new TypeNotFoundException("Type not found!");
 		} else {
 			myTypeContainer.addVariable(expression[0], expression[1], expression[2]);
 		}
