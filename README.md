@@ -72,7 +72,7 @@ The operations supported by these types are the following:
                        * <number>      repeats the string a <number> times
 			   - <string>      removes all occurences of secondString from firstString. 
 		       		           Length of firstString must be greater
-		       	                  than length of second.
+		       	                   than length of second.
 
            number
                        + <number>      adds the two numbers
