@@ -67,9 +67,11 @@ The possible types of the values are the following:
 The operations supported by these types are the following:
 
            string
-                       + <string>         concatenates the two strings
+                       + <string>      concatenates the two strings
                        + <number>      adds the number as a string to the end
-                       * <number>       repeats the string a <number> times
+                       * <number>      repeats the string a <number> times
+		       - <string>      removes all occurences of secondString from firstString. Length of firstString must be greater
+		       	               than length of second.
 
            number
                        + <number>      adds the two numbers
