@@ -12,7 +12,7 @@ public class ReverseWords extends Command implements Executable {
 	public String execute() {
 
 		if (expression.length == 0) {
-			throw new IllegalArgumentException("Argument expected! reverse-words <SomeString>");
+			throw new IllegalArgumentException("Argument expected! reverse-words <string>");
 		}
 
 		String[] wordsReversed = new String[expression.length];

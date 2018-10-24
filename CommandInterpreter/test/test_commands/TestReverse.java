@@ -30,7 +30,7 @@ public class TestReverse extends TestInitializer {
 	public void testEmptyString() {
 
 		expectedException.expect(IllegalArgumentException.class);
-		expectedException.expectMessage("Argument expected! reverse <SomeString>");
+		expectedException.expectMessage("Argument expected! reverse <string>");
 		commandInterpreter.startInterpretation("reverse");
 	}
 

@@ -11,7 +11,7 @@ public class Reverse extends Command implements Executable {
 		char[] expressionAsArray = expressionAsString.toCharArray();
 
 		if (expressionAsArray.length == 0) {
-			throw new IllegalArgumentException("Argument expected! reverse <SomeString>");
+			throw new IllegalArgumentException("Argument expected! reverse <string>");
 		}
 
 		String reversed = "";

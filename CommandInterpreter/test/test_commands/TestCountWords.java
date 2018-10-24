@@ -3,10 +3,17 @@ package test_commands;
 import static org.junit.Assert.*;
 
 import java.lang.reflect.InvocationTargetException;
+
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
 import exceptions.CommandNotFoundException;
 
 public class TestCountWords extends TestInitializer {
+
+	@Rule
+	public ExpectedException expectedException = ExpectedException.none();
 
 	@Test
 	public void testNormalExpression()
@@ -17,14 +24,18 @@ public class TestCountWords extends TestInitializer {
 	}
 
 	@Test
-	public void testZeroWords() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-		assertEquals(String.valueOf(0), interpretationMethod.invoke(commandInterpreter, "count-words"));
+	public void testZeroWords() {
+		expectedException.expect(IllegalArgumentException.class);
+		expectedException.expectMessage("Argument expected! count-words <string>");
+		commandInterpreter.startInterpretation("count-words");
 	}
 
 	@Test
-	public void testZeroWordsSingleSpace()
-			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-		assertEquals(String.valueOf(0), interpretationMethod.invoke(commandInterpreter, "count-words "));
+	public void testZeroWordsSingleSpace() {
+		expectedException.expect(IllegalArgumentException.class);
+		expectedException.expectMessage("Argument expected! count-words <string>");
+		commandInterpreter.startInterpretation("count-words ");
+
 	}
 
 	@Test
@@ -34,10 +45,8 @@ public class TestCountWords extends TestInitializer {
 	}
 
 	@Test(expected = CommandNotFoundException.class)
-	public void testWrongCommand() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-
+	public void testWrongCommand() {
 		commandInterpreter.startInterpretation("asdasd");
-
 	}
 
 }

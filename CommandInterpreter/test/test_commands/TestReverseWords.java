@@ -25,7 +25,7 @@ public class TestReverseWords extends TestInitializer {
 	public void testEmptyString() {
 
 		expectedException.expect(IllegalArgumentException.class);
-		expectedException.expectMessage("Argument expected! reverse-words <SomeString>");
+		expectedException.expectMessage("Argument expected! reverse-words <string>");
 		commandInterpreter.startInterpretation("reverse-words");
 	}
 
