@@ -35,6 +35,18 @@ It reverses the order of the words in the provided string. For example
 	  input:	reverse-words abra cadabra
   	  output: 	cadabra abra
 
+# The "set" command has the following syntax:
+           set <variable> <type> <value>
+
+The command creates a value of the given type and stores it in the given variable.
+
+Available types:
+	number
+	string
+
+The output of the command is the string "Ok".
+
+
 # The "get" command has the following syntax:
            get <variable>
 
@@ -43,13 +55,6 @@ It obtains the value of the given variable and prints it out in the format:
            [<type>] <value>
 (please see the example at the end). 
 
-
-# The "set" command has the following syntax:
-           set <variable> <type> <value>
-
-The command creates a value of the given type and stores it in the given variable.
-
-The output of the command is the string "Ok".
 
 # The "calc" command has the following syntax:
            calc <variable1> <variable2> <operation> <variable3>
