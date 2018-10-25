@@ -41,6 +41,7 @@ It reverses the order of the words in the provided string. For example
 The command creates a value of the given type and stores it in the given variable.
 
 Available types:
+
 	number
 	string
 
