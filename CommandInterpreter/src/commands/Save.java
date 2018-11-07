@@ -51,19 +51,26 @@ public class Save extends Command implements Executable {
 
 	private void startSerialization(TypeContainer myTypeContainer, OutputStream fileStream) throws IOException {
 		
+//		Map<String, MyType> variables = myTypeContainer.getVariableContainer();
+//		Set mapSet = (Set) variables.entrySet();
+//		Iterator mapSetIterator = mapSet.iterator();
+//		
+//		while(mapSetIterator.hasNext()) {
+//			Map.Entry<String, MyType> mapEntry = (Map.Entry) mapSetIterator.next();
+//			MyType currentMyType = myTypeContainer.getType(mapEntry.getKey().toString());
+//			String typeWithoutBrackets = currentMyType.getType().replaceAll("[\\[\\]]", "").trim();
+//			String toWrite = mapEntry.getKey().toString() + " " + typeWithoutBrackets + " " + mapEntry.getValue().toString() + "\r\n";
+//			fileStream.write(toWrite.getBytes());
+//			
+//		}
+		
 		Map<String, MyType> variables = myTypeContainer.getVariableContainer();
-		Set mapSet = (Set) variables.entrySet();
-		Iterator mapSetIterator = mapSet.iterator();
-		
-		while(mapSetIterator.hasNext()) {
-			Map.Entry<String, MyType> mapEntry = (Map.Entry) mapSetIterator.next();
-			MyType currentMyType = myTypeContainer.getType(mapEntry.getKey().toString());
+		for(Map.Entry<String, MyType> entry : variables.entrySet()) {
+			MyType currentMyType = myTypeContainer.getType(entry.getKey().toString());
 			String typeWithoutBrackets = currentMyType.getType().replaceAll("[\\[\\]]", "").trim();
-			String toWrite = mapEntry.getKey().toString() + " " + typeWithoutBrackets + " " + mapEntry.getValue().toString() + "\r\n";
+			String toWrite = entry.getKey().toString() + " " + typeWithoutBrackets + " " + entry.getValue().toString() + "\r\n";
 			fileStream.write(toWrite.getBytes());
-			
 		}
-		
 	}
 
 }

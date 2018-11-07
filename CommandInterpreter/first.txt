@@ -1,2 +1,3 @@
-first string hello
-second string world
+a string Hello
+b string World
+c number 12
