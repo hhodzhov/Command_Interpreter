@@ -7,6 +7,7 @@ import java.util.Scanner;
 import commands.Calc;
 import commands.CountWords;
 import commands.GetVariables;
+import commands.Print;
 import commands.Reverse;
 import commands.ReverseWords;
 import commands.Save;
@@ -107,6 +108,7 @@ public class Main {
 		commandsToInterpret.put("get", new GetVariables(myTypeContainer));
 		commandsToInterpret.put("calc", new Calc(myTypeContainer, operationFactory));
 		commandsToInterpret.put("save", new Save(myTypeContainer));
+		commandsToInterpret.put("printAll", new Print(myTypeContainer));
 		
 		
 		CommandInterpreter commandInterpreter = new CommandInterpreter(commandsToInterpret);
