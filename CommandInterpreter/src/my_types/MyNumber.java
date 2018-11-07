@@ -33,4 +33,9 @@ public class MyNumber extends MyType {
 		return String.valueOf(number);
 	}
 
+	@Override
+	public String toString() {
+		return String.valueOf(number);
+	}
+
 }

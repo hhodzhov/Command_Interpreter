@@ -1,0 +1,2 @@
+first string hello
+second string world

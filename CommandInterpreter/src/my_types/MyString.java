@@ -32,4 +32,11 @@ public class MyString extends MyType {
 		return this.myString;
 	}
 
+	@Override
+	public String toString() {
+		return myString;
+	}
+	
+	
+
 }

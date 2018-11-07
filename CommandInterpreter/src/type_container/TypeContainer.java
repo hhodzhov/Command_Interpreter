@@ -46,5 +46,9 @@ public class TypeContainer {
 			return variableContainer.get(nameOfVariable);
 		}
 	}
+	
+	public Map<String, MyType> getVariableContainer(){
+		return this.variableContainer;
+	}
 
 }

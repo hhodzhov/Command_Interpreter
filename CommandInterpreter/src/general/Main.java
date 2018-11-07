@@ -9,6 +9,7 @@ import commands.CountWords;
 import commands.GetVariables;
 import commands.Reverse;
 import commands.ReverseWords;
+import commands.Save;
 import commands.SetVariables;
 import exceptions.CommandNotFoundException;
 import exceptions.OperationNotAllowedException;
@@ -105,6 +106,7 @@ public class Main {
 		commandsToInterpret.put("set", new SetVariables(myTypeContainer, availableTypes));
 		commandsToInterpret.put("get", new GetVariables(myTypeContainer));
 		commandsToInterpret.put("calc", new Calc(myTypeContainer, operationFactory));
+		commandsToInterpret.put("save", new Save(myTypeContainer));
 		
 		
 		CommandInterpreter commandInterpreter = new CommandInterpreter(commandsToInterpret);
