@@ -35,7 +35,6 @@ public class TestCountWords extends TestInitializer {
 		expectedException.expect(IllegalArgumentException.class);
 		expectedException.expectMessage("Argument expected! count-words <string>");
 		commandInterpreter.startInterpretation("count-words ");
-
 	}
 
 	@Test

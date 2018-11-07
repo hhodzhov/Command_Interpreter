@@ -112,6 +112,5 @@ public class Main {
 		
 		startExecution(input,commandInterpreter);
 		
-		
 	}
 }
