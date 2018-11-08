@@ -1,0 +1,5 @@
+secondString string Hodzhov
+firstInt number 24
+thirdInt number 45
+firstString string Halmi
+secondInt number 21
