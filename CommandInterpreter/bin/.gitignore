@@ -1,2 +1,7 @@
 /commands/
+/exceptions/
 /general/
+/my_types/
+/operations/
+/test_commands/
+/type_container/
