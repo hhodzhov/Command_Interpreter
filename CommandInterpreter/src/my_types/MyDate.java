@@ -58,4 +58,11 @@ public class MyDate extends MyType{
 		return format(myDate);
 	}
 
+	@Override
+	public String toString() {
+		return format(myDate);
+	}
+	
+	
+
 }

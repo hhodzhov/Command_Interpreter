@@ -5,3 +5,4 @@ firstDouble double 45.43
 firstString string Halmi
 someString string Halmi Hodzhov
 secondInt number 21
+todaysDate date 10.11.2018

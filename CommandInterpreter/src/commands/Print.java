@@ -4,6 +4,7 @@ import java.util.Map;
 
 import general.Command;
 import general.Executable;
+import my_types.MyDate;
 import my_types.MyNumber;
 import my_types.MyString;
 import my_types.MyType;
@@ -34,6 +35,13 @@ public class Print extends Command implements Executable {
 			if(currentVariable.getValue() instanceof MyString) {
 				allInformation.append(currentVariable.getKey() + "\t\t"
 			+ currentVariable.getValue().getType() + "\t\t" + currentVariable.getValue().toString() + "\n");
+			}
+		}
+		
+		for(Map.Entry<String, MyType> currentVariable : allVariables.entrySet()) {
+			if(currentVariable.getValue() instanceof MyDate) {
+				allInformation.append(currentVariable.getKey() + "\t\t"
+			+ currentVariable.getValue().getType() + "\t\t\t" + currentVariable.getValue().toString() + "\n");
 			}
 		}
 		

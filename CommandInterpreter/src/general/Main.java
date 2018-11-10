@@ -33,6 +33,7 @@ import operations.add_operations.AddStringString;
 import operations.multiply_operations.Multiply;
 import operations.multiply_operations.MultiplyNumbers;
 import operations.multiply_operations.MultiplyStringNumber;
+import operations.subtract_operations.DiffBetweenTwoDates;
 import operations.subtract_operations.Subtract;
 import operations.subtract_operations.SubtractNumbers;
 import operations.subtract_operations.SubtractStringString;
@@ -95,6 +96,7 @@ public class Main {
 		HashMap<Pair<String, String>, Calculable> subtractOperations = new HashMap<>();
 		subtractOperations.put(new Pair<>(MyNumber.class.getSimpleName(), MyNumber.class.getSimpleName()), new SubtractNumbers());
 		subtractOperations.put(new Pair<>(MyString.class.getSimpleName(), MyString.class.getSimpleName()), new SubtractStringString());
+		subtractOperations.put(new Pair<>(MyDate.class.getSimpleName(), MyDate.class.getSimpleName()), new DiffBetweenTwoDates());
 		
 		Map<Character, Operation> possibleOperations = new HashMap<>();
 		possibleOperations.put('+', new Add(addOperations));
