@@ -18,6 +18,7 @@ import exceptions.OperationNotAllowedException;
 import exceptions.TypeNotFoundException;
 import exceptions.VariableNotFoundException;
 import javafx.util.Pair;
+import my_types.MyDate;
 import my_types.MyNumber;
 import my_types.MyString;
 import my_types.MyType;
@@ -25,6 +26,7 @@ import operations.Calculable;
 import operations.Operation;
 import operations.OperationFactory;
 import operations.add_operations.Add;
+import operations.add_operations.AddDateNumber;
 import operations.add_operations.AddNumbers;
 import operations.add_operations.AddStringNumber;
 import operations.add_operations.AddStringString;
@@ -74,6 +76,7 @@ public class Main {
 		Map<String, MyType> availableTypes = new HashMap<>();
 		availableTypes.put("string", new MyString());
 		availableTypes.put("number", new MyNumber());
+		availableTypes.put("date", new MyDate());
 		
 		TypeContainer myTypeContainer = new TypeContainer(variableContainer, availableTypes);
 		
@@ -82,6 +85,7 @@ public class Main {
 		addOperations.put(new Pair<>(MyNumber.class.getSimpleName(), MyNumber.class.getSimpleName()), new AddNumbers());
 		addOperations.put(new Pair<>(MyString.class.getSimpleName(), MyNumber.class.getSimpleName()), new AddStringNumber());
 		addOperations.put(new Pair<>(MyString.class.getSimpleName(), MyString.class.getSimpleName()), new AddStringString());
+		addOperations.put(new Pair<>(MyDate.class.getSimpleName(), MyNumber.class.getSimpleName()), new AddDateNumber());
 		
 		
 		HashMap<Pair<String, String>, Calculable> multiplyOperations = new HashMap<>();
