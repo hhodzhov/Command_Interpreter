@@ -62,7 +62,4 @@ public class MyDate extends MyType{
 	public String toString() {
 		return format(myDate);
 	}
-	
-	
-
 }

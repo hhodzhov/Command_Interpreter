@@ -1,10 +1,13 @@
 package my_types;
 
-public abstract class MyType {
+import java.util.Comparator;
+
+public abstract class MyType{
 
 	public MyType() {
 
 	}
+	MyType a = null;
 
 	MyType(String value) {
 		setValue(value);
@@ -17,4 +20,5 @@ public abstract class MyType {
 	public abstract MyType clone();
 
 	public abstract String getValue();
+	
 }

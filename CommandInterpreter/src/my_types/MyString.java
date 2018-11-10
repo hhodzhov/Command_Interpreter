@@ -36,7 +36,5 @@ public class MyString extends MyType {
 	public String toString() {
 		return myString;
 	}
-	
-	
 
 }

@@ -9,6 +9,12 @@ import my_types.MyNumber;
 import my_types.MyString;
 import my_types.MyType;
 import type_container.TypeContainer;
+import static java.util.Map.Entry.*;
+import static java.util.stream.Collectors.*;
+
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+
 
 public class Print extends Command implements Executable {
 
@@ -24,7 +30,9 @@ public class Print extends Command implements Executable {
 		String columns = "Variable name\t\tType\t\t\tValue\n\n";
 		allInformation.append(columns);
 		
+		
 		Map<String, MyType> allVariables = myTypeContainer.getVariableContainer();
+		
 		for(Map.Entry<String, MyType> currentVariable : allVariables.entrySet()) {
 			if(currentVariable.getValue() instanceof MyNumber) {
 				allInformation.append(currentVariable.getKey() + "\t\t"
