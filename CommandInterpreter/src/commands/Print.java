@@ -9,12 +9,6 @@ import my_types.MyNumber;
 import my_types.MyString;
 import my_types.MyType;
 import type_container.TypeContainer;
-import static java.util.Map.Entry.*;
-import static java.util.stream.Collectors.*;
-
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-
 
 public class Print extends Command implements Executable {
 
