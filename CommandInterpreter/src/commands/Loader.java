@@ -44,7 +44,13 @@ public class Loader extends Command implements Executable {
 
 		while (reader.hasNextLine()) {
 			String currentLine = reader.nextLine();
+			try {
 			setNewVariable(currentLine);
+			}catch(IllegalArgumentException illegalArguments){
+				System.err.println(illegalArguments.getMessage());
+			}catch(TypeNotFoundException typeNotFound) {
+				System.err.println(typeNotFound.getMessage());
+			}
 		}
 	}
 

@@ -1,5 +1,7 @@
 secondString string Hodzhov
 firstInt number 24
 thirdInt number 45
+firstDouble double 45.43
 firstString string Halmi
+someString string Halmi Hodzhov
 secondInt number 21
