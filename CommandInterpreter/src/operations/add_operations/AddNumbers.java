@@ -10,5 +10,4 @@ public class AddNumbers implements Calculable {
 	public MyType startCalculations(MyType firstType, MyType secondType) {
 		return new MyNumber(Integer.parseInt(firstType.getValue()) + Integer.parseInt(secondType.getValue()));
 	}
-
 }

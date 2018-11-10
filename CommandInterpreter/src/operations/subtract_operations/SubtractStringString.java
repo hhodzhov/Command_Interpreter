@@ -21,7 +21,6 @@ public class SubtractStringString implements Calculable {
 			String result = getSubtractedString(first, second);
 			return new MyString(result);
 		}
-
 	}
 
 	private String getSubtractedString(String first, String second) {
@@ -29,5 +28,4 @@ public class SubtractStringString implements Calculable {
 		String result = first.replace(second, "");
 		return result;
 	}
-
 }

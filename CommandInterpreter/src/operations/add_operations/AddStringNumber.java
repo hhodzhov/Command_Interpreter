@@ -10,5 +10,4 @@ public class AddStringNumber implements Calculable {
 	public MyType startCalculations(MyType firstType, MyType secondType) {
 		return new MyString(firstType.getValue() + secondType.getValue());
 	}
-
 }

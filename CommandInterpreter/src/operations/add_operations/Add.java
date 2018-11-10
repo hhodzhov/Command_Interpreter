@@ -11,5 +11,4 @@ public class Add extends Operation {
 	public Add(Map<Pair<String, String>, Calculable> operations) {
 		super(operations);
 	}
-
 }

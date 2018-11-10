@@ -22,5 +22,4 @@ public class MultiplyStringNumber implements Calculable {
 		}
 		return result;
 	}
-
 }

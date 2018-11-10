@@ -50,5 +50,4 @@ public class TypeContainer {
 	public Map<String, MyType> getVariableContainer(){
 		return this.variableContainer;
 	}
-
 }
