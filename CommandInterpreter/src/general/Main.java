@@ -1,5 +1,6 @@
 package general;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -122,7 +123,14 @@ public class Main {
 		CommandInterpreter commandInterpreter = new CommandInterpreter(commandsToInterpret);
 		Scanner input = new Scanner(System.in);
 		
-		startExecution(input,commandInterpreter);
+		//startExecution(input,commandInterpreter);
+		
+		try {
+			commandInterpreter.startServer();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 }
