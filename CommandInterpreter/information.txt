@@ -1,3 +1,6 @@
 secondString string Hodzhov
 firstString string Halmi
-firstFload float 12.12
+firstNumber number 34
+secondNumber number 23
+todaysDate date 12.11.2018
+tomorowsDate date 12.11.2018
