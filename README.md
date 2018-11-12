@@ -47,7 +47,7 @@ Available types:
 
 	number
 	string
-	date
+	   date
 
 The output of the command is the string "Ok".
 
@@ -89,7 +89,7 @@ The possible types of the values are the following:
 
            string
            number
-	   date
+	      date
 		   
 The operations supported by these types are the following:
 
@@ -106,9 +106,9 @@ The operations supported by these types are the following:
                        - <number>       subtracts the two numbers
                        * <number>       multiplies the two numbers
 	   
-	   date
-	   		+ <number> adds a <number> of days
-			- <date> finds difference between two dates in days
+	     date
+	    		 + <number> adds a <number> of days
+			 - <date> finds difference between two dates in days
 		       
 
 # Example
