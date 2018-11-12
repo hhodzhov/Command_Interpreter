@@ -61,7 +61,7 @@ public class CommandInterpreter {
 					client = server.accept();
 					executors.submit(handleClientConnection(client));
 				} catch (IOException ioException) {
-					 Logger.getLogger(CommandInterpreter.class.getName()).log(Level.SEVERE, null, ioException);
+					Logger.getLogger(CommandInterpreter.class.getName()).log(Level.SEVERE, null, ioException);
 				}
 				System.out.println("Client " + clientCounter++ + " connected");
 			}
@@ -78,26 +78,23 @@ public class CommandInterpreter {
 			try {
 				in = new DataInputStream(client.getInputStream());
 			} catch (IOException ioException) {
-				 Logger.getLogger(CommandInterpreter.class.getName()).log(Level.SEVERE, null, ioException);
+				Logger.getLogger(CommandInterpreter.class.getName()).log(Level.SEVERE, null, ioException);
 			}
 			DataOutputStream out = null;
 			try {
 				out = new DataOutputStream(client.getOutputStream());
 			} catch (IOException ioException) {
-				 Logger.getLogger(CommandInterpreter.class.getName()).log(Level.SEVERE, null, ioException);
+				Logger.getLogger(CommandInterpreter.class.getName()).log(Level.SEVERE, null, ioException);
 			}
 			String nameOfClient = null;
 			try {
 				nameOfClient = in.readUTF();
 				System.out.println("Name of new client : " + nameOfClient);
 			} catch (IOException ioException) {
-				 Logger.getLogger(CommandInterpreter.class.getName()).log(Level.SEVERE, null, ioException);
+				Logger.getLogger(CommandInterpreter.class.getName()).log(Level.SEVERE, null, ioException);
 			}
 			users.put(nameOfClient, out);
-			
 			waitForMessages(nameOfClient, in);
-			
-		
 		});
 
 		return connection;
@@ -111,40 +108,36 @@ public class CommandInterpreter {
 				clientMessage = in.readUTF();
 				serverMessage = startInterpretation(clientMessage);
 			} catch (IOException ioException) {
-				 Logger.getLogger(CommandInterpreter.class.getName()).log(Level.SEVERE, null, ioException);
-			}catch(CommandNotFoundException cmd) {
-				
+				Logger.getLogger(CommandInterpreter.class.getName()).log(Level.SEVERE, null, ioException);
+			} catch (CommandNotFoundException cmd) {
+
 				try {
 					sendToSelectedClient(nameOfClient, cmd.getMessage());
 				} catch (IOException e) {
 					System.err.println(e.getMessage());
 				}
-			}
-			catch(IllegalArgumentException illegalArgumentException) {
-				
+			} catch (IllegalArgumentException illegalArgumentException) {
+
 				try {
 					sendToSelectedClient(nameOfClient, illegalArgumentException.getMessage());
 				} catch (IOException e) {
 					System.err.println(e.getMessage());
 				}
-			}
-			catch (TypeNotFoundException typeNotFoundException) {
-				
+			} catch (TypeNotFoundException typeNotFoundException) {
+
 				try {
 					sendToSelectedClient(nameOfClient, typeNotFoundException.getMessage());
 				} catch (IOException e) {
 					System.err.println(e.getMessage());
 				}
-			}
-			catch(VariableNotFoundException variableNotFoundException) {
-				
+			} catch (VariableNotFoundException variableNotFoundException) {
+
 				try {
 					sendToSelectedClient(nameOfClient, variableNotFoundException.getMessage());
 				} catch (IOException e) {
 					System.err.println(e.getMessage());
 				}
-			}
-			catch(OperationNotAllowedException noSuchOperation) {
+			} catch (OperationNotAllowedException noSuchOperation) {
 
 				try {
 					sendToSelectedClient(nameOfClient, noSuchOperation.getMessage());
@@ -156,10 +149,10 @@ public class CommandInterpreter {
 			try {
 				sendToSelectedClient(nameOfClient, serverMessage);
 			} catch (IOException ioException) {
-				 Logger.getLogger(CommandInterpreter.class.getName()).log(Level.SEVERE, null, ioException);
+				Logger.getLogger(CommandInterpreter.class.getName()).log(Level.SEVERE, null, ioException);
 			}
 		}
-		
+
 	}
 
 	private void sendToSelectedClient(String nameOfClient, String serverMessage) throws IOException {
@@ -168,7 +161,5 @@ public class CommandInterpreter {
 			toSend.writeUTF(serverMessage);
 			toSend.flush();
 		}
-
 	}
-
 }
