@@ -45,7 +45,6 @@ public class Save extends Command implements Executable {
 			System.err.println("Saving went wrong");
 		}
 		
-		
 		return "Saved successfuly";
 	}
 
@@ -59,5 +58,4 @@ public class Save extends Command implements Executable {
 			fileStream.write(toWrite.getBytes());
 		}
 	}
-
 }
