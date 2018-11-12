@@ -14,5 +14,4 @@ public class CountWords extends Command implements Executable {
 			return String.valueOf(expression.length);
 		}
 	}
-
 }

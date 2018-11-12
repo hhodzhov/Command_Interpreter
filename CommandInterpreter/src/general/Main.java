@@ -4,41 +4,15 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-
-import commands.Calc;
-import commands.CountWords;
-import commands.GetVariables;
-import commands.Loader;
-import commands.Print;
-import commands.Reverse;
-import commands.ReverseWords;
-import commands.Save;
-import commands.SetVariables;
-import exceptions.CommandNotFoundException;
-import exceptions.OperationNotAllowedException;
-import exceptions.TypeNotFoundException;
-import exceptions.VariableNotFoundException;
 import javafx.util.Pair;
-import my_types.MyDate;
-import my_types.MyNumber;
-import my_types.MyString;
-import my_types.MyType;
-import operations.Calculable;
-import operations.Operation;
-import operations.OperationFactory;
-import operations.add_operations.Add;
-import operations.add_operations.AddDateNumber;
-import operations.add_operations.AddNumbers;
-import operations.add_operations.AddStringNumber;
-import operations.add_operations.AddStringString;
-import operations.multiply_operations.Multiply;
-import operations.multiply_operations.MultiplyNumbers;
-import operations.multiply_operations.MultiplyStringNumber;
-import operations.subtract_operations.DiffBetweenTwoDates;
-import operations.subtract_operations.Subtract;
-import operations.subtract_operations.SubtractNumbers;
-import operations.subtract_operations.SubtractStringString;
 import type_container.TypeContainer;
+import operations.*;
+import operations.add_operations.*;
+import operations.multiply_operations.*;
+import operations.subtract_operations.*;
+import my_types.*;
+import commands.*;
+import exceptions.*;
 
 public class Main {
 

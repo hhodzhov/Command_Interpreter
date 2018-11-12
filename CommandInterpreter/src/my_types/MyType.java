@@ -1,6 +1,5 @@
 package my_types;
 
-import java.util.Comparator;
 
 public abstract class MyType{
 

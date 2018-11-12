@@ -4,11 +4,8 @@ import java.util.Map;
 
 import general.Command;
 import general.Executable;
-import my_types.MyDate;
-import my_types.MyNumber;
-import my_types.MyString;
-import my_types.MyType;
 import type_container.TypeContainer;
+import my_types.*;
 
 public class Print extends Command implements Executable {
 
