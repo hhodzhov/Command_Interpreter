@@ -48,7 +48,7 @@ public class CommandInterpreter {
 		ServerSocket server = new ServerSocket(1234);
 		System.err.println("Server started, waiting for client...");
 		users = new HashMap<>();
-		executors = Executors.newCachedThreadPool();
+		executors = Executors.newCachedThreadPool(); 
 
 		Thread thread = new Thread(() -> {
 			while (true) {

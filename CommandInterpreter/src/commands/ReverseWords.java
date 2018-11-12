@@ -1,6 +1,5 @@
 package commands;
 
-import java.util.Arrays;
 import general.Command;
 import general.Executable;
 
