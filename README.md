@@ -10,9 +10,9 @@ The interpreter takes commands from the standard input. The commands that will b
         get
         set
         calc
-	save
-	load
-	print-all
+	     save
+	     load
+	     print-all
  
 
 # The "reverse" command has the following syntax:
