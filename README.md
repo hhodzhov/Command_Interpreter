@@ -89,7 +89,7 @@ The possible types of the values are the following:
 
            string
            number
-	     date
+	       date
 		   
 The operations supported by these types are the following:
 
