@@ -13,6 +13,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import exceptions.CommandNotFoundException;
+import exceptions.OperationNotAllowedException;
+import exceptions.TypeNotFoundException;
+import exceptions.VariableNotFoundException;
 
 public class CommandInterpreter {
 
@@ -92,25 +95,71 @@ public class CommandInterpreter {
 			}
 			users.put(nameOfClient, out);
 			
-			while (true) {
-
-				String clientMessage = "", serverMessage = "";
-				try {
-					clientMessage = in.readUTF();
-					serverMessage = startInterpretation(clientMessage);
-				} catch (IOException ioException) {
-					 Logger.getLogger(CommandInterpreter.class.getName()).log(Level.SEVERE, null, ioException);
-				}
-				System.out.println("Client " + "'" + nameOfClient + "' said : " + clientMessage);
-				try {
-					sendToSelectedClient(nameOfClient, serverMessage);
-				} catch (IOException ioException) {
-					 Logger.getLogger(CommandInterpreter.class.getName()).log(Level.SEVERE, null, ioException);
-				}
-			}
+			waitForMessages(nameOfClient, in);
+			
+		
 		});
 
 		return connection;
+	}
+
+	private void waitForMessages(String nameOfClient, DataInputStream in) {
+		while (true) {
+
+			String clientMessage = "", serverMessage = "";
+			try {
+				clientMessage = in.readUTF();
+				serverMessage = startInterpretation(clientMessage);
+			} catch (IOException ioException) {
+				 Logger.getLogger(CommandInterpreter.class.getName()).log(Level.SEVERE, null, ioException);
+			}catch(CommandNotFoundException cmd) {
+				
+				try {
+					sendToSelectedClient(nameOfClient, cmd.getMessage());
+				} catch (IOException e) {
+					System.err.println(e.getMessage());
+				}
+			}
+			catch(IllegalArgumentException illegalArgumentException) {
+				
+				try {
+					sendToSelectedClient(nameOfClient, illegalArgumentException.getMessage());
+				} catch (IOException e) {
+					System.err.println(e.getMessage());
+				}
+			}
+			catch (TypeNotFoundException typeNotFoundException) {
+				
+				try {
+					sendToSelectedClient(nameOfClient, typeNotFoundException.getMessage());
+				} catch (IOException e) {
+					System.err.println(e.getMessage());
+				}
+			}
+			catch(VariableNotFoundException variableNotFoundException) {
+				
+				try {
+					sendToSelectedClient(nameOfClient, variableNotFoundException.getMessage());
+				} catch (IOException e) {
+					System.err.println(e.getMessage());
+				}
+			}
+			catch(OperationNotAllowedException noSuchOperation) {
+
+				try {
+					sendToSelectedClient(nameOfClient, noSuchOperation.getMessage());
+				} catch (IOException e) {
+					System.err.println(e.getMessage());
+				}
+			}
+			System.out.println("Client " + "'" + nameOfClient + "' said : " + clientMessage);
+			try {
+				sendToSelectedClient(nameOfClient, serverMessage);
+			} catch (IOException ioException) {
+				 Logger.getLogger(CommandInterpreter.class.getName()).log(Level.SEVERE, null, ioException);
+			}
+		}
+		
 	}
 
 	private void sendToSelectedClient(String nameOfClient, String serverMessage) throws IOException {
