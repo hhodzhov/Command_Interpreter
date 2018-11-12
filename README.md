@@ -10,6 +10,9 @@ The interpreter takes commands from the standard input. The commands that will b
         get
         set
         calc
+	    save
+	    load
+	    print-all
  
 
 # The "reverse" command has the following syntax:
@@ -44,6 +47,7 @@ Available types:
 
 	number
 	string
+	date
 
 The output of the command is the string "Ok".
 
@@ -65,10 +69,27 @@ The command performs a simplistic operation between variable2 and variable3 and 
 The output of the command is the string "Ok".
 
 
+# The "save" command has the following syntax:
+	save <file_name>
+The command saves variables into a file.
+The output of the command is the string "Saved successfully".
+
+
+# The "load" command has the following syntax:
+	load <file_name>
+It loads variables from file.
+The output of the command is the string "Loading completed successfuly!".
+
+# The "print" command has the following syntax: 
+	print-all
+It prints information for all the declared variables.
+
+
 The possible types of the values are the following:
 
            string
            number
+	       date
 		   
 The operations supported by these types are the following:
 
@@ -84,7 +105,11 @@ The operations supported by these types are the following:
                        + <number>      adds the two numbers
                        - <number>       subtracts the two numbers
                        * <number>       multiplies the two numbers
-
+	   
+	     date
+	    		 + <number> adds a <number> of days
+			 - <date> finds difference between two dates in days
+		       
 
 # Example
 
