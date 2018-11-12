@@ -111,55 +111,36 @@ public class CommandInterpreter {
 				Logger.getLogger(CommandInterpreter.class.getName()).log(Level.SEVERE, null, ioException);
 			} catch (CommandNotFoundException cmd) {
 
-				try {
-					sendToSelectedClient(nameOfClient, cmd.getMessage());
-				} catch (IOException e) {
-					System.err.println(e.getMessage());
-				}
+				sendToSelectedClient(nameOfClient, cmd.getMessage());
 			} catch (IllegalArgumentException illegalArgumentException) {
 
-				try {
-					sendToSelectedClient(nameOfClient, illegalArgumentException.getMessage());
-				} catch (IOException e) {
-					System.err.println(e.getMessage());
-				}
+				sendToSelectedClient(nameOfClient, illegalArgumentException.getMessage());
 			} catch (TypeNotFoundException typeNotFoundException) {
 
-				try {
-					sendToSelectedClient(nameOfClient, typeNotFoundException.getMessage());
-				} catch (IOException e) {
-					System.err.println(e.getMessage());
-				}
+				sendToSelectedClient(nameOfClient, typeNotFoundException.getMessage());
 			} catch (VariableNotFoundException variableNotFoundException) {
 
-				try {
-					sendToSelectedClient(nameOfClient, variableNotFoundException.getMessage());
-				} catch (IOException e) {
-					System.err.println(e.getMessage());
-				}
+				sendToSelectedClient(nameOfClient, variableNotFoundException.getMessage());
 			} catch (OperationNotAllowedException noSuchOperation) {
-
-				try {
-					sendToSelectedClient(nameOfClient, noSuchOperation.getMessage());
-				} catch (IOException e) {
-					System.err.println(e.getMessage());
-				}
+				
+				sendToSelectedClient(nameOfClient, noSuchOperation.getMessage());
 			}
 			System.out.println("Client " + "'" + nameOfClient + "' said : " + clientMessage);
-			try {
-				sendToSelectedClient(nameOfClient, serverMessage);
-			} catch (IOException ioException) {
-				Logger.getLogger(CommandInterpreter.class.getName()).log(Level.SEVERE, null, ioException);
-			}
-		}
 
+			sendToSelectedClient(nameOfClient, serverMessage);
+		}
 	}
 
-	private void sendToSelectedClient(String nameOfClient, String serverMessage) throws IOException {
+	private void sendToSelectedClient(String nameOfClient, String serverMessage) {
 		if (users.containsKey(nameOfClient)) {
 			DataOutputStream toSend = users.get(nameOfClient);
-			toSend.writeUTF(serverMessage);
-			toSend.flush();
+
+			try {
+				toSend.writeUTF(serverMessage);
+				toSend.flush();
+			} catch (IOException e) {
+				Logger.getLogger(CommandInterpreter.class.getName()).log(Level.SEVERE, null, e);
+			}
 		}
 	}
 }
