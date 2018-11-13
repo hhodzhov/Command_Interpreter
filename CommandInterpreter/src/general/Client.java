@@ -35,10 +35,14 @@ public class Client {
             dataOutputStream.flush();
             System.out.println("Connection is successful. You can write commands now!");
 	        //To server
-	        while (true) {
-	            dataOutputStream.writeUTF(bufferedReader.readLine());
+            String toSend = "";
+	        do  {
+	        	toSend = bufferedReader.readLine();
+	            dataOutputStream.writeUTF(toSend);
 	            dataOutputStream.flush();
-	        }
+	        }while(!toSend.equals("log out"));
+	        
+	        System.exit(0);
 		
 	}
 }

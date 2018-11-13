@@ -11,6 +11,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+
 import exceptions.*;
 
 public class CommandInterpreter {
@@ -97,12 +99,16 @@ public class CommandInterpreter {
 	}
 
 	private void waitForMessages(String nameOfClient, DataInputStream in) {
-		while (true) {
+		String clientMessage = "";
+		do  {
 
-			String clientMessage = "", serverMessage = "";
+			String  serverMessage = "";
 			try {
 				clientMessage = in.readUTF();
-				serverMessage = startInterpretation(clientMessage);
+				if(!clientMessage.equals("log out")) {
+					serverMessage = startInterpretation(clientMessage);
+				}
+			
 			} catch (IOException ioException) {
 				Logger.getLogger(CommandInterpreter.class.getName()).log(Level.SEVERE, null, ioException);
 			} catch (CommandNotFoundException cmd) {
@@ -124,7 +130,9 @@ public class CommandInterpreter {
 			System.out.println("Client " + "'" + nameOfClient + "' said : " + clientMessage);
 
 			sendToSelectedClient(nameOfClient, serverMessage);
-		}
+		}while(!clientMessage.equals("log out"));
+		--clientCounter;
+		System.err.println("Client " + nameOfClient + " logged out");
 	}
 
 	private void sendToSelectedClient(String nameOfClient, String serverMessage) {
