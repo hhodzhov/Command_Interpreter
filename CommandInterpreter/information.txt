@@ -1,7 +1,8 @@
 daysToAdd number 12
 otherDate date 25.11.2018
-anotherDate date 14.11.2017
 todaysDate date 13.11.2018
+secondNumber number 45
+firstNumber number 12
 tomorrowsDate date 14.11.2018
-oneYearDiff number 364
-diffDates number -1
+diffDates number 1
+firstString string Hello

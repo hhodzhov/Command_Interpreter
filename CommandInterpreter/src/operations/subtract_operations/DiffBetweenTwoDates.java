@@ -16,9 +16,8 @@ public class DiffBetweenTwoDates implements Calculable {
 		Date secondDate = MyDate.parseGivenDate(secondType.getValue());
 		
 		long difference = firstDate.getTime() - secondDate.getTime();
-		int differenceInDays = (int) TimeUnit.DAYS.convert(difference, TimeUnit.MILLISECONDS);
+		int differenceInDays = Math.abs((int) TimeUnit.DAYS.convert(difference, TimeUnit.MILLISECONDS));
 		
 		return new MyNumber(differenceInDays);
 	}
-
 }

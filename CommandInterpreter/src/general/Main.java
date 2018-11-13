@@ -80,20 +80,21 @@ public class Main {
 		commandsToInterpret.put("set", new SetVariables(myTypeContainer, availableTypes));
 		commandsToInterpret.put("get", new GetVariables(myTypeContainer));
 		commandsToInterpret.put("calc", new Calc(myTypeContainer, operationFactory));
+		commandsToInterpret.put("print-all", new Print(myTypeContainer));
 		commandsToInterpret.put("save", new Save(myTypeContainer));
 		commandsToInterpret.put("load", new Loader(myTypeContainer, availableTypes));
-		commandsToInterpret.put("print-all", new Print(myTypeContainer));
+		
 
 		CommandInterpreter commandInterpreter = new CommandInterpreter(commandsToInterpret);
 		Scanner input = new Scanner(System.in);
 
-		 //startExecution(input,commandInterpreter);
+		 startExecution(input,commandInterpreter);
 
-		try {
-			commandInterpreter.startServer();
-		} catch (IOException e) {
-			System.err.println(e.getMessage());
-		}
+//		try {
+//			commandInterpreter.startServer();
+//		} catch (IOException e) {
+//			System.err.println(e.getMessage());
+//		}
 
 	}
 }
