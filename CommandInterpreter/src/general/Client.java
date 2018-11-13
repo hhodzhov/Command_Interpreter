@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class Client {
@@ -23,8 +25,8 @@ public class Client {
 	            while (true) {
 	                try {
 	                    serverMessage = dataInputStream.readUTF();
-	                } catch (IOException e) {
-	                    e.printStackTrace();
+	                } catch (IOException ioException) {
+	                	Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ioException);
 	                }
 	                System.out.println(serverMessage);
 	            }
