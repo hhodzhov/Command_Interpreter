@@ -45,6 +45,7 @@ public class Client {
 	        }while(!toSend.equals("log out"));
 	        
 	        System.exit(0);
+	        socket.close();
 		
 	}
 }
