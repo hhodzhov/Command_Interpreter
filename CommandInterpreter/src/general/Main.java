@@ -37,6 +37,10 @@ public class Main {
 
 			} catch (OperationNotAllowedException noSuchOperation) {
 				System.err.println(noSuchOperation.getMessage());
+				
+			} catch (NullPointerException ex) {
+				System.err.println(ex.getMessage());
+				
 			}
 		}
 	}
@@ -87,13 +91,13 @@ public class Main {
 
 		CommandInterpreter commandInterpreter = new CommandInterpreter(commandsToInterpret);
 		Scanner input = new Scanner(System.in);
+		
+		 startExecution(input,commandInterpreter);
 
-		 //startExecution(input,commandInterpreter);
-
-		try {
-			commandInterpreter.startServer();
-		} catch (IOException e) {
-			System.err.println(e.getMessage());
-		}
+//		try {
+//			commandInterpreter.startServer();
+//		} catch (IOException e) {
+//			System.err.println(e.getMessage());
+//		}
 	}
 }

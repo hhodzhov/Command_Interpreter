@@ -26,7 +26,7 @@ public class CommandInterpreter {
 		this.commandsToInterpret = commandsToInterpret;
 	}
 
-	public String startInterpretation(String expression) {
+	public String startInterpretation(String expression){
 		expression = expression.trim();
 		String command;
 		if (expression.indexOf(' ') == -1) {
@@ -52,7 +52,8 @@ public class CommandInterpreter {
 		users = new HashMap<>();
 		executors = Executors.newCachedThreadPool(); 
 
-		Thread thread = new Thread(() -> {
+		
+		Thread fromClient = new Thread(() -> {
 			while (true) {
 				Socket client = null;
 				try {
@@ -65,7 +66,7 @@ public class CommandInterpreter {
 			}
 		});
 
-		thread.start();
+		fromClient.start();
 
 	}
 

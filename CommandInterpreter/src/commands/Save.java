@@ -6,6 +6,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import general.Command;
 import general.Executable;
 import my_types.MyType;
@@ -19,25 +22,30 @@ public class Save extends Command implements Executable {
 
 	@Override
 	public String execute()  {
+		
+		if(expression.length != 1) {
+			throw new IllegalArgumentException("Wrong arguments! One argument expected : save <file name>");
+		}
+		
 		File nameOfFile = new File(expression[0]);
 		if(!nameOfFile.exists()) {
 			try {
 				nameOfFile.createNewFile();
 			} catch (IOException e) {
-				System.err.println("Cannot create file!");
+				Logger.getLogger(Save.class.getName()).log(Level.WARNING, "Cannot create file!", e.getMessage());
 			}
 		}
 		OutputStream fileStream = null;
 		try {
 			 fileStream = new FileOutputStream(nameOfFile);
 		} catch (FileNotFoundException e) {
-			System.err.println("Cannot open file stream");
+			Logger.getLogger(Loader.class.getName()).log(Level.WARNING, "Cannot open file stream!", e.getMessage());
 		}
 		
 		try {
 			startSerialization(myTypeContainer,fileStream);
 		} catch (IOException e) {
-			System.err.println("Saving went wrong");
+			Logger.getLogger(Loader.class.getName()).log(Level.WARNING, "Saving went wrong", e.getMessage());
 		}
 		return "Saved successfuly";
 	}

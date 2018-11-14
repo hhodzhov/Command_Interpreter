@@ -15,6 +15,10 @@ public class Print extends Command implements Executable {
 
 	@Override
 	public String execute() {
+		
+		if(expression.length != 0) {
+			throw new IllegalArgumentException("No arguments required for this command!");
+		}
 
 		StringBuilder allInformation = new StringBuilder();
 		String columns = "Variable name\t\tType\t\t\tValue\n\n";

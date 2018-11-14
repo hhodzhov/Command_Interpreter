@@ -36,6 +36,7 @@ public class Client {
 	        dataOutputStream.writeUTF(bufferedReader.readLine());
             dataOutputStream.flush();
             System.out.println("Connection is successful. You can write commands now!");
+            
 	        //To server
             String toSend = "";
 	        do  {

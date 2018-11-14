@@ -4,9 +4,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import exceptions.TypeNotFoundException;
 import general.Command;
+import general.CommandInterpreter;
 import general.Executable;
 import my_types.MyType;
 import type_container.TypeContainer;
@@ -19,15 +22,20 @@ public class Loader extends Command implements Executable {
 
 	@Override
 	public String execute() {
+		
+		if(expression.length != 1) {
+			throw new IllegalArgumentException("Wrong arguments! One argument expected load <file name>");
+		}
 
 		File fileToLoad = new File(expression[0]);
+
 		Scanner reader = null;
 		try {
 			reader = new Scanner(fileToLoad);
 		} catch (FileNotFoundException e) {
-			System.err.println("Error occured!");
+			Logger.getLogger(Loader.class.getName()).log(Level.WARNING, "File not found", e.getMessage());
 		}
-
+		
 		try {
 			startDeserialization(reader);
 		} catch (IllegalArgumentException illegalArgumentException) {
