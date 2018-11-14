@@ -88,7 +88,7 @@ public class Main {
 		commandsToInterpret.put("save", new Save(myTypeContainer));
 		commandsToInterpret.put("load", new Loader(myTypeContainer, availableTypes));
 		
-
+		
 		CommandInterpreter commandInterpreter = new CommandInterpreter(commandsToInterpret);
 		Scanner input = new Scanner(System.in);
 		
